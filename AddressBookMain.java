@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class AddressBookMain {
 	public static void main(String[] args) {
 		System.out.println("Welcome to address book program");
-		
+
 		AddressBook c1 = new AddressBook();
 		c1.setFirstName("bob");
 		c1.setLastName("james");
@@ -23,36 +23,46 @@ public class AddressBookMain {
 		c2.setZip("11582");
 		c2.setPhoneNumber("2255443");
 		c2.setEmail("curry@hotmail.com");
-		
-		AddressBook newContact = new AddressBook();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter details ");
-		System.out.println("Enter first name ");
-		newContact.setFirstName(sc.nextLine());
-		System.out.println("enter last name ");
-		newContact.setLastName(sc.nextLine());
-		System.out.println("enter address ");
-		newContact.setAddress(sc.nextLine());
-		System.out.println("enter city ");
-		newContact.setCity(sc.nextLine());
-		System.out.println("enter state ");
-		newContact.setState(sc.nextLine());
-		System.out.println("enter zip ");
-		newContact.setZip(sc.nextLine());
-		System.out.println("enter phone number ");
-		newContact.setPhoneNumber(sc.nextLine());
-		System.out.println("enter email ");
-		newContact.setEmail(sc.nextLine());
-		sc.close();
+
+//		AddressBook newContact = new AddressBook();
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter details ");
+//		System.out.println("Enter first name ");
+//		newContact.setFirstName(sc.nextLine());
+//		System.out.println("enter last name ");
+//		newContact.setLastName(sc.nextLine());
+//		System.out.println("enter address ");
+//		newContact.setAddress(sc.nextLine());
+//		System.out.println("enter city ");
+//		newContact.setCity(sc.nextLine());
+//		System.out.println("enter state ");
+//		newContact.setState(sc.nextLine());
+//		System.out.println("enter zip ");
+//		newContact.setZip(sc.nextLine());
+//		System.out.println("enter phone number ");
+//		newContact.setPhoneNumber(sc.nextLine());
+//		System.out.println("enter email ");
+//		newContact.setEmail(sc.nextLine());
+//		sc.close();
 
 		ContactStore contactStore = new ContactStore();
 		contactStore.add(c1);
 		contactStore.add(c2);
-		contactStore.add(newContact);
+//		contactStore.add(newContact);
 
 		Console console = new Console();
 		console.print(contactStore.getContactList());
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter name of contact you want to edit");
+		String name = sc.nextLine();
+		if(c1.getFirstName().equalsIgnoreCase(name) == true)
+			console.edit(c1);
+		else if(c2.getFirstName().equalsIgnoreCase(name) == true)
+			console.edit(c2);
+//		else if(newContact.getFirstName().equalsIgnoreCase(name) == true)
+//			console.edit(newContact);
+		System.out.println("Contact List after edit");
+		console.print(contactStore.getContactList());
 	}
-	}
-
-
+}
