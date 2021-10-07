@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class AddressBookMain {
 	public static void main(String[] args) {
@@ -22,10 +23,32 @@ public class AddressBookMain {
 		c2.setZip("11582");
 		c2.setPhoneNumber("2255443");
 		c2.setEmail("curry@hotmail.com");
+		
+		AddressBook newContact = new AddressBook();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter details ");
+		System.out.println("Enter first name ");
+		newContact.setFirstName(sc.nextLine());
+		System.out.println("enter last name ");
+		newContact.setLastName(sc.nextLine());
+		System.out.println("enter address ");
+		newContact.setAddress(sc.nextLine());
+		System.out.println("enter city ");
+		newContact.setCity(sc.nextLine());
+		System.out.println("enter state ");
+		newContact.setState(sc.nextLine());
+		System.out.println("enter zip ");
+		newContact.setZip(sc.nextLine());
+		System.out.println("enter phone number ");
+		newContact.setPhoneNumber(sc.nextLine());
+		System.out.println("enter email ");
+		newContact.setEmail(sc.nextLine());
+		sc.close();
 
 		ContactStore contactStore = new ContactStore();
 		contactStore.add(c1);
 		contactStore.add(c2);
+		contactStore.add(newContact);
 
 		Console console = new Console();
 		console.print(contactStore.getContactList());
