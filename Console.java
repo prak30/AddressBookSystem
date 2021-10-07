@@ -4,8 +4,8 @@ import java.util.Set;
 
 public class Console {
 	void print(Set<AddressBook> contactList) {
-		for (AddressBook s : contactList) {
-			System.out.println(s);
+		for (AddressBook i : contactList) {
+			System.out.println(i);
 		}
 	}
 	void edit(AddressBook contact) {
@@ -20,4 +20,5 @@ public class Console {
 		contact.setPhoneNumber(sc.nextLine());
 		contact.setEmail(sc.nextLine());
 	}
+	
 }

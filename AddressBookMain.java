@@ -53,16 +53,28 @@ public class AddressBookMain {
 		Console console = new Console();
 		console.print(contactStore.getContactList());
 		
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter name of contact you want to edit");
+//		String name = sc.nextLine();
+//		if(c1.getFirstName().equalsIgnoreCase(name) == true)
+//			console.edit(c1);
+//		else if(c2.getFirstName().equalsIgnoreCase(name) == true)
+//			console.edit(c2);
+////		else if(newContact.getFirstName().equalsIgnoreCase(name) == true)
+////			console.edit(newContact);
+//		System.out.println("Contact List after edit");
+//		console.print(contactStore.getContactList());
+		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter name of contact you want to edit");
-		String name = sc.nextLine();
-		if(c1.getFirstName().equalsIgnoreCase(name) == true)
-			console.edit(c1);
-		else if(c2.getFirstName().equalsIgnoreCase(name) == true)
-			console.edit(c2);
-//		else if(newContact.getFirstName().equalsIgnoreCase(name) == true)
-//			console.edit(newContact);
-		System.out.println("Contact List after edit");
+		System.out.println("Enter person contact you want to delete");
+		String contactName = sc.nextLine();
+		if(c1.getFirstName().equalsIgnoreCase(contactName))
+			contactStore.delete(c1);
+//		else if(newContact.getFirstName().equalsIgnoreCase(contactName))
+//			contactStore.remove(newContact);
+		else if(c2.getFirstName().equalsIgnoreCase(contactName) == true)
+			contactStore.delete(c2);
+		System.out.println("Contact List after deletion");
 		console.print(contactStore.getContactList());
 	}
 }
