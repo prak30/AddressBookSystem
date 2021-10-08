@@ -23,36 +23,51 @@ public class AddressBookMain {
 		c2.setZip("11582");
 		c2.setPhoneNumber("2255443");
 		c2.setEmail("curry@hotmail.com");
-
-//		AddressBook newContact = new AddressBook();
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("Enter details ");
-//		System.out.println("Enter first name ");
-//		newContact.setFirstName(sc.nextLine());
-//		System.out.println("enter last name ");
-//		newContact.setLastName(sc.nextLine());
-//		System.out.println("enter address ");
-//		newContact.setAddress(sc.nextLine());
-//		System.out.println("enter city ");
-//		newContact.setCity(sc.nextLine());
-//		System.out.println("enter state ");
-//		newContact.setState(sc.nextLine());
-//		System.out.println("enter zip ");
-//		newContact.setZip(sc.nextLine());
-//		System.out.println("enter phone number ");
-//		newContact.setPhoneNumber(sc.nextLine());
-//		System.out.println("enter email ");
-//		newContact.setEmail(sc.nextLine());
-//		sc.close();
-
+		
 		ContactStore contactStore = new ContactStore();
 		contactStore.add(c1);
 		contactStore.add(c2);
-//		contactStore.add(newContact);
-
+		
 		Console console = new Console();
 		console.print(contactStore.getContactList());
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter number of users");
+		int n=sc.nextInt();
+		for(int i = 1; i <= n; i++)
+		{
+		AddressBook newContact = new AddressBook();
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("Enter details ");
+		System.out.println("Enter first name ");
+		newContact.setFirstName(sc1.nextLine());
+		System.out.println("enter last name ");
+		newContact.setLastName(sc1.nextLine());
+		System.out.println("enter address ");
+		newContact.setAddress(sc1.nextLine());
+		System.out.println("enter city ");
+		newContact.setCity(sc1.nextLine());
+		System.out.println("enter state ");
+		newContact.setState(sc1.nextLine());
+		System.out.println("enter zip ");
+		newContact.setZip(sc1.nextLine());
+		System.out.println("enter phone number ");
+		newContact.setPhoneNumber(sc1.nextLine());
+		System.out.println("enter email ");
+		newContact.setEmail(sc1.nextLine());
+		contactStore.add(newContact);
+		console.print(contactStore.getContactList());
+		}
+		
+
+//		ContactStore contactStore = new ContactStore();
+//		contactStore.add(c1);
+//		contactStore.add(c2);
+//		contactStore.add(newContact);
+
+//		Console console = new Console();
+//		console.print(contactStore.getContactList());
+//		
 //		Scanner sc = new Scanner(System.in);
 //		System.out.println("Enter name of contact you want to edit");
 //		String name = sc.nextLine();
@@ -65,16 +80,16 @@ public class AddressBookMain {
 //		System.out.println("Contact List after edit");
 //		console.print(contactStore.getContactList());
 		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter person contact you want to delete");
-		String contactName = sc.nextLine();
-		if(c1.getFirstName().equalsIgnoreCase(contactName))
-			contactStore.delete(c1);
-//		else if(newContact.getFirstName().equalsIgnoreCase(contactName))
-//			contactStore.remove(newContact);
-		else if(c2.getFirstName().equalsIgnoreCase(contactName) == true)
-			contactStore.delete(c2);
-		System.out.println("Contact List after deletion");
-		console.print(contactStore.getContactList());
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter person contact you want to delete");
+//		String contactName = sc.nextLine();
+//		if(c1.getFirstName().equalsIgnoreCase(contactName))
+//			contactStore.delete(c1);
+////		else if(newContact.getFirstName().equalsIgnoreCase(contactName))
+////			contactStore.remove(newContact);
+//		else if(c2.getFirstName().equalsIgnoreCase(contactName) == true)
+//			contactStore.delete(c2);
+//		System.out.println("Contact List after deletion");
+//		console.print(contactStore.getContactList());
 	}
 }
