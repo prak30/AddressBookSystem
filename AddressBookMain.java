@@ -31,11 +31,13 @@ public class AddressBookMain {
 		Console console = new Console();
 		console.print(contactStore.getContactList());
 		
+		ConsoleV2 console2 = new ConsoleV2();
+		console2.print(contactStore.getContactListTwo());
+		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter number of users");
-		int n=sc.nextInt();
-		for(int i = 1; i <= n; i++)
-		{
+		System.out.println("Enter 1 to add details to AddressBook and 2 to add to AddressBookTwo");
+		int select = sc.nextInt();
+		if (select == 1) {
 		AddressBook newContact = new AddressBook();
 		Scanner sc1 = new Scanner(System.in);
 		System.out.println("Enter details ");
@@ -58,6 +60,30 @@ public class AddressBookMain {
 		contactStore.add(newContact);
 		console.print(contactStore.getContactList());
 		}
+	 else if (select == 2) {
+		AddressBookV2 newContact2 = new AddressBookV2();
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("Enter details ");
+		System.out.println("Enter first name ");
+		newContact2.setFirstName(sc1.nextLine());
+		System.out.println("enter last name ");
+		newContact2.setLastName(sc1.nextLine());
+		System.out.println("enter address ");
+		newContact2.setAddress(sc1.nextLine());
+		System.out.println("enter city ");
+		newContact2.setCity(sc1.nextLine());
+		System.out.println("enter state ");
+		newContact2.setState(sc1.nextLine());
+		System.out.println("enter zip ");
+		newContact2.setZip(sc1.nextLine());
+		System.out.println("enter phone number ");
+		newContact2.setPhoneNumber(sc1.nextLine());
+		System.out.println("enter email ");
+		newContact2.setEmail(sc1.nextLine());
+		contactStore.add(newContact2);
+		console2.print(contactStore.getContactListTwo());
+		}
+		
 		
 
 //		ContactStore contactStore = new ContactStore();
